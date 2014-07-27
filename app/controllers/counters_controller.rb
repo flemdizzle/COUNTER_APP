@@ -1,6 +1,6 @@
 class CountersController < ApplicationController
   before_action :set_counter, only: [:show, :edit, :update, :destroy]
-
+  layout "main", except: [:settings, :contact]
   # GET /counters
   # GET /counters.json
   def index
