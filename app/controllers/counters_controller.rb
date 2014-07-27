@@ -28,7 +28,7 @@ class CountersController < ApplicationController
 
     respond_to do |format|
       if @counter.save
-        format.html { redirect_to @counter, notice: 'Counter was successfully created.' }
+        format.html { redirect_to counters_path, notice: 'Counter was successfully created.' }
         format.json { render :show, status: :created, location: @counter }
       else
         format.html { render :new }
@@ -58,13 +58,6 @@ class CountersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to counters_url, notice: 'Counter was successfully destroyed.' }
       format.json { head :no_content }
-    end
-  end
-
-  def run
-    @run = 1.upto(100) do |i|
-      output = counters.map { |counter| counter.word if i % counter.multi == 0 }.join
-      returns output.length > 0 ? output : i
     end
   end
 

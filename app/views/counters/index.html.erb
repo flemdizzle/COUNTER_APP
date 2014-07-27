@@ -7,7 +7,6 @@
     <tr>
       <th>Multiple</th>
       <th>Display Word</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -16,12 +15,9 @@
         <td><%= counter.multi %></td>
         <td><%= counter.word %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_counter_path(counter), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       counter_path(counter),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
@@ -31,7 +27,8 @@
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_counter_path,
-            :class => 'btn btn-primary' %><br>
+            :class => 'btn btn-primary' %><br><br>
+<button class='btn btn-success'>Run</button>
 <div>
 <% 1.upto(100) do |i| %>
       <% output = @counters.map { |counter| counter.word if i % counter.multi == 0 }.join %>
